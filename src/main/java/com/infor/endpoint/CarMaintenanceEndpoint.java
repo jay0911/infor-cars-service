@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.infor.dto.UserMaintenanceDTO;
+import com.infor.dto.MaintenanceDTO;
 import com.infor.models.AjaxResponseBody;
 import com.infor.service.CarMaintenanceService;
 
@@ -16,7 +16,7 @@ public class CarMaintenanceEndpoint {
 	private CarMaintenanceService s;
 
 	@PostMapping("/savecar")
-	public AjaxResponseBody savecar(@RequestBody UserMaintenanceDTO dto){
+	public AjaxResponseBody savecar(@RequestBody MaintenanceDTO dto){
 		AjaxResponseBody response = new AjaxResponseBody();
 		try{
 			s.saveCar(dto);
@@ -30,7 +30,7 @@ public class CarMaintenanceEndpoint {
 	}
 	
 	@PostMapping("/editcar")
-	public AjaxResponseBody editcar(@RequestBody UserMaintenanceDTO dto){
+	public AjaxResponseBody editcar(@RequestBody MaintenanceDTO dto){
 		AjaxResponseBody response = new AjaxResponseBody();
 		try{
 			s.editCar(dto);
@@ -44,7 +44,7 @@ public class CarMaintenanceEndpoint {
 	}
 	
 	@PostMapping("/deletecar")
-	public AjaxResponseBody deletecar(@RequestBody UserMaintenanceDTO dto){
+	public AjaxResponseBody deletecar(@RequestBody MaintenanceDTO dto){
 		AjaxResponseBody response = new AjaxResponseBody();
 		try{
 			s.deleteCar(dto);
@@ -58,8 +58,8 @@ public class CarMaintenanceEndpoint {
 	}
 	
 	@PostMapping("/selectcar")
-	public UserMaintenanceDTO selectcar(@RequestBody UserMaintenanceDTO dto){
-		UserMaintenanceDTO returndto = new UserMaintenanceDTO();
+	public MaintenanceDTO selectcar(@RequestBody MaintenanceDTO dto){
+		MaintenanceDTO returndto = new MaintenanceDTO();
 		returndto.setInforCars(s.selectCars(dto));
 		return returndto;
 	}

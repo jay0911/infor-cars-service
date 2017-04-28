@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.infor.dao.CarMaintananceDao;
-import com.infor.dto.UserMaintenanceDTO;
+import com.infor.dto.MaintenanceDTO;
 import com.infor.models.InforCar;
 import com.infor.models.InforUser;
 import com.infor.service.CarMaintenanceService;
@@ -23,13 +23,13 @@ public class CarMaintenanceIService implements CarMaintenanceService{
 	private CarMaintananceDao md;
 
 	@Override
-	public void deleteCar(UserMaintenanceDTO dto) {
+	public void deleteCar(MaintenanceDTO dto) {
 		// TODO Auto-generated method stub
 		md.deleteCar(dto);
 	}
 
 	@Override
-	public void saveCar(UserMaintenanceDTO dto) {
+	public void saveCar(MaintenanceDTO dto) {
 		// TODO Auto-generated method stub
 		InforCar inforCar = new InforCar();
 		inforCar.setCarbrand(dto.getCarbrand());
@@ -40,7 +40,7 @@ public class CarMaintenanceIService implements CarMaintenanceService{
 	}
 
 	@Override
-	public void editCar(UserMaintenanceDTO dto) {
+	public void editCar(MaintenanceDTO dto) {
 		// TODO Auto-generated method stub
 		InforCar inforCar = new InforCar();
 		inforCar.setCarbrand(dto.getCarbrand());
@@ -50,7 +50,7 @@ public class CarMaintenanceIService implements CarMaintenanceService{
 	}
 
 	@Override
-	public List<InforCar> selectCars(UserMaintenanceDTO dto) {
+	public List<InforCar> selectCars(MaintenanceDTO dto) {
 		// TODO Auto-generated method stub
 		return md.selectCars(dto);
 	}

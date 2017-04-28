@@ -6,7 +6,7 @@ import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 import javax.transaction.Transactional;
 import com.infor.dao.CarMaintananceDao;
-import com.infor.dto.UserMaintenanceDTO;
+import com.infor.dto.MaintenanceDTO;
 import com.infor.models.InforCar;
 
 @Repository
@@ -22,7 +22,7 @@ public class CarMaintenanceIDao extends HibernateDaoSupport implements CarMainta
 
 
 	@Override
-	public void deleteCar(UserMaintenanceDTO dto) {
+	public void deleteCar(MaintenanceDTO dto) {
 		// TODO Auto-generated method stub
 		Query query = getSessionFactory().createQuery(USERCAR_DELETE_HQL);
 	    query.setParameter("carplatenumber", dto.getCarplatenumber());
@@ -48,7 +48,7 @@ public class CarMaintenanceIDao extends HibernateDaoSupport implements CarMainta
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<InforCar> selectCars(UserMaintenanceDTO dto) {
+	public List<InforCar> selectCars(MaintenanceDTO dto) {
 		// TODO Auto-generated method stub
 		return customSelectQuery(CAR_FETCH_HQL)
 				.setParameter("userid", dto.getUserid())
